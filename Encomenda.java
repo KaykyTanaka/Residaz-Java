@@ -1,9 +1,8 @@
-public class Multa {
+public class Encomenda {
 	private Morador morador;
 	private String titulo;
 	private String descricao;
 	private String data;
-	private double valor;
 	
 	public String getTitulo(){
 		return titulo;
@@ -23,22 +22,15 @@ public class Multa {
 	public void setData(String data){
 		this.data = data;
 	}
-	public double getValor(){
-		return valor;
-	}
-	public void setValor(double valor){
-		this.valor = valor;
-	}
 	
-	public String visualizarMulta(){
-		return "Titulo da multa: " + getTitulo() + "\nDescricao da multa: " + getDescricao() + "\nData da multa: " + getData() +
-		"\nValor: " + getValor() + "Apart.: " + morador.getApartamento();
+	public String visualizarEncomenda(){
+		return "Titulo da encomenda: " + getTitulo() + "\nDescricao da encomenda: " + getDescricao() + 
+		"\nData da encomenda: " + getData() + "Apart.: " + morador.getApartamento();
 	}
-	public void cadastrarMulta(String titulo, String descricao, String data, double valor, String apartamento, Pessoa pessoa[]){
+	public void cadastrarEncomenda(String titulo, String descricao, String data, double valor, String apartamento, Pessoa pessoa[]){
 		setTitulo( titulo );  
-		setDescricao( descricao);
+		setDescricao( descricao );
 		setData( data );
-		setValor( valor );
 		boolean nexist = false;
 		for(int i=0; i<pessoa.length; i++){
 			if( ((Morador)pessoa[i]).getApartamento().equalsIgnoreCase(apartamento)){
