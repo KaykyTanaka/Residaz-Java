@@ -413,5 +413,3 @@ public class Residaz {
 		}while(opcao != saida);
 	}
 }
-
->>>>>>> a69ea4ac7b65cc86a356e029fa17df69d73d6a67
