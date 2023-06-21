@@ -1,19 +1,20 @@
 public class Morador extends Pessoa {
-	private Multa multa;
-	private Reclamacao reclamacao;
-	private Manutencao manutencao;
-	private Encomenda encomenda;
-	private Ocorrencia ocorrencia;
 	private String apartamento;
 	
-	public Morador( String nome, String cpf, String telefone, String email, String tipo  ){
-		super( nome, cpf, telefone, email, tipo);
+	public Morador( int id, String nome, String cpf, String telefone, String email, String tipo, String apartamento ){
+		super( id, nome, cpf, telefone, email, tipo );
+		setApartamento( apartamento );
 	}
 	public String getApartamento(){
 		return apartamento;
 	}
 	public void setApartamento(String apartamento){
 		this.apartamento = apartamento;
+	}
+	@Override
+	public String toString(){
+		return "[ID: " + getId() + "] [Nome: " + getNome() + "] [CPF: " + getCpf() + "] \n[Telefone: " + getTelefone() +
+		"] [Email: " + getEmail() + "] [Tipo de usuario: " + getTipo() + "] [Apartamento: " + getApartamento() + "]";
 	}
 }
 

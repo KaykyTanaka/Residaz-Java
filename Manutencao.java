@@ -5,6 +5,7 @@ public class Manutencao {
 	private String data;
 	private String local;
 	private String tipo;
+	private String autor;
 	private double valor;
 	
 	public String getTitulo(){
@@ -50,11 +51,21 @@ public class Manutencao {
 	}
 	public void gerarRelatorioManu(String titulo, String descricao, String data, String local, String tipo, double valor){
 		setTitulo( titulo );  
-		setDescricao( descricao);
+		setDescricao( descricao );
 		setData( data );
 		setLocal( local );
 		setTipo( tipo );
 		setValor( valor );
+	}
+	public void gerarRelatorioManu( String titulo, String descricao, String data, 
+	String local,String tipo, double valor, Pessoa useratual){
+		setTitulo( titulo );  
+		setDescricao( descricao );
+		setData( data );
+		setLocal( local );
+		setTipo( tipo );
+		setValor( valor );
+		morador.setApartamento( useratual.getNome() );
 	}
 }
 

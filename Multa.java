@@ -35,19 +35,19 @@ public class Multa {
 		"\nValor: " + getValor() + "Apart.: " + morador.getApartamento();
 	}
 	public void cadastrarMulta(String titulo, String descricao, String data, double valor, String apartamento, Pessoa pessoa[]){
+		for(int i=0; i<pessoa.length; i++){
+			if( ((Morador)pessoa[i]).getApartamento().equalsIgnoreCase(apartamento)){
+				morador.setApartamento( apartamento );
+			}
+			if( i == ( pessoa.length-1) ){
+				System.out.println("Apartamento invalido, falha no cadastro...");
+				return;
+			}
+		}
 		setTitulo( titulo );  
 		setDescricao( descricao);
 		setData( data );
 		setValor( valor );
-		boolean nexist = false;
-		for(int i=0; i<pessoa.length; i++){
-			if( ((Morador)pessoa[i]).getApartamento().equalsIgnoreCase(apartamento)){
-				morador.setApartamento( apartamento );
-				if( i == pessoa.length-1){ nexist = true; }
-			}else {
-				if( nexist == true ){ morador.setApartamento ( "nao existe "); }
-			}
-		}
 	}
 }
 

@@ -3,6 +3,7 @@ public class Reclamacao {
 	private String titulo;
 	private String descricao;
 	private String data;
+	private String autor;
 	
 	public String getTitulo(){
 		return titulo;
@@ -22,16 +23,22 @@ public class Reclamacao {
 	public void setData(String data){
 		this.data = data;
 	}
+	public String getAutor(){
+		return autor;
+	}
+	public void setAutor(String autor){
+		this.autor = autor;
+	}
 	
 	public String visualizarReclamacao(){
 		return "Titulo da encomenda: " + getTitulo() + "\nDescricao da encomenda: " + getDescricao() + 
-		"\nData da encomenda: " + getData() + "Autor: ";
+		"\nData da encomenda: " + getData() + "Autor: " + morador.getNome();
 	}
-	public void cadastrarReclamacao(String titulo, String descricao, String data){
+	public void cadastrarReclamacao(String titulo, String descricao, String data, Pessoa useratual){
 		setTitulo( titulo );  
 		setDescricao( descricao );
 		setData( data );
-		
+		setAutor ( useratual.getNome() );
 	}
 }
 
