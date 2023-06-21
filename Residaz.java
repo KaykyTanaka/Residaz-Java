@@ -182,6 +182,7 @@ public class Residaz {
 				case 2:
 				if ( useratual instanceof Sindico){
 					ler.nextLine();
+					ocorrencia[posicaooccor] = new Ocorrencia();
 					System.out.println("Digite o titulo da ocorrencia: ");
 					String titulo = ler.nextLine();
 					System.out.println("Digite a descricao da ocorrencia: ");
@@ -190,7 +191,8 @@ public class Residaz {
 					String data = ler.nextLine();
 					System.out.println("Digite a providencias da ocorrencia: ");
 					String providencia = ler.nextLine();
-					ocorrencia[posicaooccor].cadastrarOcorrencia( titulo, descricao, data, providencia );
+					ocorrencia[posicaooccor].setTitulo( titulo );
+					//ocorrencia[posicaooccor].cadastrarOcorrencia( titulo, descricao, data, providencia );
 					posicaooccor++;
 				}else 
 				if ( useratual instanceof Morador){

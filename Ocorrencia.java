@@ -4,6 +4,13 @@ public class Ocorrencia {
 	private String data;
 	private String providencias;
 	
+	public Ocorrencia() {
+		setTitulo( "" );
+		setDescricao( "" );
+		setData( "" );
+		setProvidencias( "" );
+	}
+	
 	public String getTitulo(){
 		return titulo;
 	}
@@ -33,11 +40,11 @@ public class Ocorrencia {
 		return "Titulo da encomenda: " + getTitulo() + "\nDescricao da encomenda: " + getDescricao() + 
 		"\nData da encomenda: " + getData() + "Providencias.: " + getProvidencias();
 	}
-	public void cadastrarOcorrencia(String titulo, String descricao, String data, String ocorrencia){
-		setTitulo( titulo );  
-		setDescricao( descricao );
-		setData( data );
-		setProvidencias( ocorrencia );
+	public void cadastrarOcorrencia(String titulo, String descricao, String data, String providencias){
+		this.titulo = titulo;  
+		this.descricao = descricao;
+		this.data = data;
+		this.providencias = providencias;
 	}
 }
 
