@@ -5,21 +5,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Ocorrencia {
-<<<<<<< HEAD
-	private String titulo;
-	private String descricao;
-	private String data;
-	private String providencias;
-	
-	public Ocorrencia() {
-		setTitulo( "" );
-		setDescricao( "" );
-		setData( "" );
-		setProvidencias( "" );
-	}
-	
-	public String getTitulo(){
-=======
 	private static String titulo, descricao, data, providencias;
 	private static String arquivo = "dadosOcorrencia.txt",
 			separador = " | ";
@@ -39,7 +24,6 @@ public class Ocorrencia {
 	}
 
 	public String getTitulo() {
->>>>>>> 83d601745bd34dc7b703bfd01adfb75b54dc5a05
 		return titulo;
 	}
 
@@ -70,21 +54,6 @@ public class Ocorrencia {
 	public void setProvidencias(String providencias) {
 		this.providencias = providencias;
 	}
-<<<<<<< HEAD
-	
-	public String visualizarOcorrencia(){
-		return "Titulo da encomenda: " + getTitulo() + "\nDescricao da encomenda: " + getDescricao() + 
-		"\nData da encomenda: " + getData() + "Providencias.: " + getProvidencias();
-	}
-	public void cadastrarOcorrencia(String titulo, String descricao, String data, String providencias){
-		this.titulo = titulo;  
-		this.descricao = descricao;
-		this.data = data;
-		this.providencias = providencias;
-	}
-}
-=======
->>>>>>> 83d601745bd34dc7b703bfd01adfb75b54dc5a05
 
 	public String visualizarOcorrencia() {
 		return "Titulo da encomenda: " + getTitulo() + "\nDescricao da encomenda: " + getDescricao() +
