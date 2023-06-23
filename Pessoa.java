@@ -7,8 +7,13 @@ import java.io.IOException;
 public class Pessoa {
 	private static int id;
 	private static String nome, cpf, telefone, email, tipo;
-	private static String arquivo = "dadosUsuarios.txt",
-			separador = " | ";
+	private static String arquivo = "dadosUsuarios.txt", separador = "|", separador2 = "\\|";
+	private static String[] pessoaS = new String[20];
+	
+	private Pessoa[] pessoaNS = new Pessoa[20];
+	private int idNS;
+	private String nomeNS, cpfNS, telefoneNS, emailNS, tipoNS;
+	
 
 	public Pessoa() {
 		setId(0);
@@ -29,56 +34,51 @@ public class Pessoa {
 	}
 
 	public int getId() {
-		return id;
+		return idNS;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idNS = id;
 	}
 
 	public String getNome() {
-		return nome;
+		return nomeNS;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		 this.nomeNS = nome;
 	}
 
 	public String getCpf() {
-		return cpf;
+		return cpfNS;
 	}
 
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+		this.cpfNS = cpf;
 	}
 
 	public String getTelefone() {
-		return telefone;
+		return telefoneNS;
 	}
 
 	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+		this.telefoneNS = telefone;
 	}
 
 	public String getEmail() {
-		return email;
+		return emailNS;
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.emailNS = email;
 	}
 
 	public String getTipo() {
-		return tipo;
+		return tipoNS;
 	}
 
 	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	@Override
-	public String toString() {
-		return "Nome: " + getNome() + "\nCpf: " + getCpf() + "\nTelefone: " + getTelefone() + "\nEmail: " + getEmail();
+		this.tipoNS = tipo;
 	}
 
 	public static boolean cadastrarUsuario() {
@@ -104,79 +104,81 @@ public class Pessoa {
 			bw.newLine();
 
 			bw.close();
-
 			fw.close();
-
 			return true;
-
 		} catch (IOException e) {
-
 			e.printStackTrace();
-
 			return false;
 		}
 	}
-
 	public static boolean lerDoArquivo() {
-
 		try {
 
 			FileReader fr = new FileReader(arquivo);
-
 			BufferedReader br = new BufferedReader(fr);
-
 			while (br.ready()) {
-
 				String linha = br.readLine();
 				System.out.println(linha);
 			}
-
 			br.close();
-
 			fr.close();
-
 			return true;
-
 		} catch (IOException e) {
-
 			return false;
 		}
 	}
-
 	public static Pessoa[] leDoArquivoEGeraUmVetor() {
-
-		int qtde = 100, contador = 0;
-
+		int qtde = 20, contador = 1;
 		Pessoa[] usu = new Pessoa[qtde];
-
 		try {
-
 			FileReader fr = new FileReader(arquivo);
-
 			BufferedReader br = new BufferedReader(fr);
-
 			while (contador < qtde && br.ready()) {
-
 				String linha = br.readLine();
-
+				pessoaS[contador] = linha;
+				//System.out.println( pessoaS[contador] );
 				// System.out.println ( linha );
-
-				String campos[] = linha.split(separador);
-
-				usu[contador++] = new Pessoa(Integer.parseInt(campos[0]), campos[1], campos[2], campos[3], campos[4],
-						campos[5]);
-
+				String campos[] = linha.split(separador2);
+				usu[contador] = new Pessoa(Integer.parseInt(campos[0]), campos[1], campos[2], campos[3], campos[4], campos[5]);
+				contador++;	
 			}
-
 			br.close();
-
 			fr.close();
-
 			return usu;
-
 		} catch (IOException e) {
-
 			return null;
 		}
 	}
+	public void converterPessoas( Pessoa pessoa[] ){
+		for(int i=1;i<pessoaS.length-1 && pessoaS[i] != null;i++){
+			if(pessoaNS[i] == null){
+				String campos[] = this.pessoaS[i].split("\\|");
+				/*for( int j=0; j<campos.length;j++){
+					System.out.println( campos[j] );
+				}*/
+				pessoaNS[i] = new Pessoa(Integer.parseInt(campos[0]), campos[1], campos[2], campos[3], campos[4], campos[5]);
+				pessoa[i] = pessoaNS[i];
+				//System.out.println( pessoaNS[i]);
+			}else{ break; }
+		}
+	}
+	/*public void getPessoaNS(){
+		for(int i=0;i<pessoaNS.length && pessoaNS[i] != null;i++){
+			System.out.println( pessoaNS[i]);
+		}
+	}*/
+	/*public int tamanhoPessoa(){
+		int contador = 1;
+		for(int i=1;i<pessoaS.length-1 && pessoaS[i] != null;i++){
+			contador++;
+		}
+		return contador;
+	}*/
+	@Override
+	public String toString() {
+		return "[ID: " + getId() + "] [Nome: " + getNome() + "] [CPF: " + getCpf() + "] \n[Telefone: " + getTelefone() +
+				"] [Email: " + getEmail() + "] [Tipo de usuario: " + getTipo() + "]";
+	}
+
+	
 }

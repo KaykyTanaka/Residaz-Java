@@ -4,8 +4,25 @@ import java.io.IOException;
 public class Residaz {
 	public static void main(String[] args) {
 		Scanner ler = new Scanner(System.in);
-		Pessoa[] pessoa = Pessoa.leDoArquivoEGeraUmVetor();
+		Pessoa[] pessoa = new Pessoa[20];
 		Pessoa useratual = new Pessoa();
+		new Pessoa(){}.leDoArquivoEGeraUmVetor();
+		new Pessoa(){}.converterPessoas( pessoa );
+		/*for(int i=0;i<pessoa.length-1;i++){
+			if(useratual.getPessoaS ( i ) != null){
+				System.out.println( useratual.getPessoaS( i ) );
+			}
+		}*/
+		/*new Pessoa(){}.getPessoaNS();
+		for(int i=1;i< pessoa.length && pessoa[i] != null;i++){
+			System.out.println(pessoa[i]);
+			if(pessoa[i] == null){
+				pessoa[i] = new Pessoa(){}.getPessoaNS( i );
+				System.out.println( pessoa[i] );
+			}else{
+				break;
+			}
+		}*/
 
 		int opcao = 0;
 		int idsessao = 0;
@@ -18,7 +35,7 @@ public class Residaz {
 				useratual = pessoa[idsessao];
 				idsessao = 1;
 			}
-			if (useratual instanceof Sindico) {
+			if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 				System.out.println("[" + useratual.getNome() + "]");
 				System.out.println("=== Residaz ===");
 				System.out.println("1) Cadastrar Usuario");
@@ -36,7 +53,7 @@ public class Residaz {
 				System.out.print(">>> Opcao: ");
 				saida = 11;
 				opcao = ler.nextInt();
-			} else if (useratual instanceof Morador) {
+			} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 				System.out.println("[Morador: " + useratual.getNome() + "]");
 				System.out.println("=== Residaz ===");
 				System.out.println("1) Cadastrar Reclamação");
@@ -52,7 +69,7 @@ public class Residaz {
 				System.out.print(">>> Opcao: ");
 				saida = 8;
 				opcao = ler.nextInt();
-			} else if (useratual instanceof Porteiro) {
+			} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 				System.out.println("[Porteiro: " + useratual.getNome() + "]");
 				System.out.println("=== Residaz ===");
 				System.out.println("1) Cadastrar Encomenda");
@@ -67,7 +84,7 @@ public class Residaz {
 				System.out.print(">>> Opcao: ");
 				saida = 7;
 				opcao = ler.nextInt();
-			} else if (useratual instanceof Zelador) {
+			} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 				System.out.println("[Zelador: " + useratual.getNome() + "]");
 				System.out.println("=== Residaz ===");
 				System.out.println("1) Gerar Relatorio de Manutencao");
@@ -88,7 +105,7 @@ public class Residaz {
 					break;
 				case 1:
 
-					if (useratual instanceof Sindico) {
+					if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 						System.out.println("Qual o tipo de usuario (Sindico/Morador/Porteiro/Zelador): ");
 						ler.nextLine();
 						String tipousuario = ler.nextLine();
@@ -124,23 +141,30 @@ public class Residaz {
 							Pessoa sindico = new Sindico(idusuario, nomeusuario, cpf, telefone, email,
 									tipousuario);
 							sindico.cadastrarUsuario();
+							new Pessoa(){}.leDoArquivoEGeraUmVetor();
+							new Pessoa(){}.converterPessoas( pessoa );
 						} else if (tipousuario.equalsIgnoreCase("morador")) {
 							System.out.println("Digite o apartamento do usuario: ");
 							String apartamento = ler.nextLine();
-							Morador morador = new Morador(idusuario, nomeusuario, cpf, telefone, email, tipousuario,
-									apartamento);
+							Morador morador = new Morador(idusuario, nomeusuario, cpf, telefone, email, tipousuario);
 							morador.cadastrarUsuario();
+							new Pessoa(){}.leDoArquivoEGeraUmVetor();
+							new Pessoa(){}.converterPessoas( pessoa );
 						} else if (tipousuario.equalsIgnoreCase("porteiro")) {
 							Pessoa porteiro = new Porteiro(idusuario, nomeusuario, cpf, telefone, email,
-									tipousuario);
+								tipousuario);
 							porteiro.cadastrarUsuario();
+							new Pessoa(){}.leDoArquivoEGeraUmVetor();
+							new Pessoa(){}.converterPessoas( pessoa );
 						} else if (tipousuario.equalsIgnoreCase("zelador")) {
 							Pessoa zelador = new Zelador(idusuario, nomeusuario, cpf, telefone, email,
 									tipousuario);
 							zelador.cadastrarUsuario();
+							new Pessoa(){}.leDoArquivoEGeraUmVetor();
+							new Pessoa(){}.converterPessoas( pessoa );
 						}
 
-					} else if (useratual instanceof Morador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 						ler.nextLine();
 						System.out.println("Digite o titulo da reclamacao: ");
 						String titulo = ler.nextLine();
@@ -150,7 +174,7 @@ public class Residaz {
 						String data = ler.nextLine();
 						// reclamacao[posicaorecla].cadastrarReclamacao(titulo, descricao, data,
 						// useratual);
-					} else if (useratual instanceof Porteiro) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 						ler.nextLine();
 						System.out.println("Digite o nome da encomenda: ");
 						String nome = ler.nextLine();
@@ -162,7 +186,7 @@ public class Residaz {
 						String apart = ler.nextLine();
 						Encomenda encomenda = new Encomenda(nome, descricao, data, apart);
 						encomenda.cadastrarEncomenda();
-					} else if (useratual instanceof Zelador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 						ler.nextLine();
 						System.out.println("Digite o titulo da manutencao: ");
 						String titulo = ler.nextLine();
@@ -185,7 +209,7 @@ public class Residaz {
 					}
 					break;
 				case 2:
-					if (useratual instanceof Sindico) {
+					if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 						ler.nextLine();
 						System.out.println("Digite o titulo da ocorrencia: ");
 						String titulo = ler.nextLine();
@@ -198,7 +222,7 @@ public class Residaz {
 						Ocorrencia ocorrenciaS = new Ocorrencia(titulo, descricao, data, providencia);
 						ocorrenciaS.cadastrarOcorrencia();
 
-					} else if (useratual instanceof Morador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 						ler.nextLine();
 						System.out.println("Digite o titulo da manutencao: ");
 						String titulo = ler.nextLine();
@@ -215,7 +239,7 @@ public class Residaz {
 						Manutencao manutencao = new Manutencao(titulo, descricao, data, local, tipo, tipo, custo);
 						manutencao.cadastrarManutencao();
 
-					} else if (useratual instanceof Porteiro) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 						ler.nextLine();
 						System.out.println("Digite o titulo da ocorrencia: ");
 						String titulo = ler.nextLine();
@@ -227,7 +251,7 @@ public class Residaz {
 						String providencia = ler.nextLine();
 						Ocorrencia ocorrenciaP = new Ocorrencia(titulo, descricao, data, providencia);
 						ocorrenciaP.cadastrarOcorrencia();
-					} else if (useratual instanceof Zelador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 						ler.nextLine();
 						System.out.println("Digite o titulo da ocorrencia: ");
 						String titulo = ler.nextLine();
@@ -242,7 +266,7 @@ public class Residaz {
 					}
 					break;
 				case 3:
-					if (useratual instanceof Sindico) {
+					if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 						ler.nextLine();
 						System.out.println("Digite o titulo da manutencao: ");
 						String titulo = ler.nextLine();
@@ -259,16 +283,16 @@ public class Residaz {
 						Manutencao manutencao = new Manutencao(titulo, descricao, data, local, tipo, tipo, valor);
 						manutencao.cadastrarManutencao();
 
-					} else if (useratual instanceof Morador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 
-					} else if (useratual instanceof Porteiro) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 
-					} else if (useratual instanceof Zelador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 
 					}
 					break;
 				case 4:
-					if (useratual instanceof Sindico) {
+					if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 						ler.nextLine();
 						System.out.println("Digite o titulo da multa: ");
 						String titulo = ler.nextLine();
@@ -282,37 +306,37 @@ public class Residaz {
 						String apartamento = ler.nextLine();
 						// multa[posicaomulta].cadastrarMulta(titulo, descricao, data, valor,
 						// apartamento, pessoa);
-					} else if (useratual instanceof Morador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 						System.out.println();
 						System.out.println("\nNome | Descricao | Data | Apartamento");
 						Encomenda.lerDoArquivo();
 						System.out.println("\n");
-					} else if (useratual instanceof Porteiro) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 						System.out.println();
 						System.out.println("\nNome | Descricao | Data | Apartamento");
 						Encomenda.lerDoArquivo();
 						System.out.println("\n");
-					} else if (useratual instanceof Zelador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 
 					}
 					break;
 				case 5:
-					if (useratual instanceof Sindico) {
+					if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 						System.out.println();
 						System.out.println("\nTitulo | Descricao | Data | Providencias \n");
 						Ocorrencia.lerDoArquivo();
 						System.out.println("\n");
-					} else if (useratual instanceof Morador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 						System.out.println();
 						System.out.println("\nTitulo | Descricao | Data | Providencias \n");
 						Ocorrencia.lerDoArquivo();
 						System.out.println("\n");
-					} else if (useratual instanceof Porteiro) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 						System.out.println();
 						System.out.println("\nTitulo | Descricao | Data | Providencias \n");
 						Ocorrencia.lerDoArquivo();
 						System.out.println("\n");
-					} else if (useratual instanceof Zelador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 						System.out.println();
 						System.out.println("\nTitulo | Descricao | Data | Providencias \n");
 						Ocorrencia.lerDoArquivo();
@@ -320,11 +344,11 @@ public class Residaz {
 					}
 					break;
 				case 6:
-					if (useratual instanceof Sindico) {
+					if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 
-					} else if (useratual instanceof Morador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 
-					} else if (useratual instanceof Porteiro) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 						System.out.println("Selecione um dos seguintes usuarios pelo id: ");
 						for (int i = 0; i < pessoa.length && pessoa[i] != null; i++) {
 							System.out.println(pessoa[i]);
@@ -339,7 +363,7 @@ public class Residaz {
 							} while (opcao2 < 0 || pessoa[opcao2] == null);
 						}
 						useratual = pessoa[opcao2];
-					} else if (useratual instanceof Zelador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 						System.out.println("Selecione um dos seguintes usuarios pelo id: ");
 						for (int i = 0; i < pessoa.length && pessoa[i] != null; i++) {
 							System.out.println(pessoa[i]);
@@ -357,9 +381,9 @@ public class Residaz {
 					}
 					break;
 				case 7:
-					if (useratual instanceof Sindico) {
+					if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 
-					} else if (useratual instanceof Morador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 						System.out.println("Selecione um dos seguintes usuarios pelo id: ");
 						for (int i = 0; i < pessoa.length && pessoa[i] != null; i++) {
 							System.out.println(pessoa[i]);
@@ -374,42 +398,42 @@ public class Residaz {
 							} while (opcao2 < 0 || pessoa[opcao2] == null);
 						}
 						useratual = pessoa[opcao2];
-					} else if (useratual instanceof Porteiro) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 
-					} else if (useratual instanceof Zelador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 
 					}
 					break;
 				case 8:
-					if (useratual instanceof Sindico) {
+					if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 
-					} else if (useratual instanceof Morador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 						break;
-					} else if (useratual instanceof Porteiro) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 						System.out.println("[Opcao Incorreta]!");
 						break;
-					} else if (useratual instanceof Zelador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 						System.out.println("[Opcao Incorreta]!");
 						break;
 					}
 					break;
 				case 9:
-					if (useratual instanceof Sindico) {
+					if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 
 						break;
-					} else if (useratual instanceof Morador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 						System.out.println("[Opcao Incorreta]!");
 						break;
-					} else if (useratual instanceof Porteiro) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 						System.out.println("[Opcao Incorreta]!");
 						break;
-					} else if (useratual instanceof Zelador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 						System.out.println("[Opcao Incorreta]!");
 						break;
 					}
 					break;
 				case 10:
-					if (useratual instanceof Sindico) {
+					if (useratual.getTipo().equalsIgnoreCase( "sindico" )) {
 						if (pessoa[1] == null) {
 							System.out.println("Ainda nao ha usuarios cadastrados!");
 							break;
@@ -429,13 +453,13 @@ public class Residaz {
 							}
 							useratual = pessoa[opcao2];
 						}
-					} else if (useratual instanceof Morador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
 						System.out.println("[Opcao Incorreta]!");
 						break;
-					} else if (useratual instanceof Porteiro) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "porteiro" )) {
 						System.out.println("[Opcao Incorreta]!");
 						break;
-					} else if (useratual instanceof Zelador) {
+					} else if (useratual.getTipo().equalsIgnoreCase( "zelador" )) {
 						System.out.println("[Opcao Incorreta]!");
 						break;
 					}
