@@ -4,21 +4,14 @@ import java.io.IOException;
 public class Residaz {
 	public static void main(String[] args) {
 		Scanner ler = new Scanner(System.in);
-		Pessoa pessoa[] = new Pessoa[50];
+		Pessoa[] pessoa = Pessoa.leDoArquivoEGeraUmVetor();
 		Pessoa useratual = new Pessoa();
-		Manutencao manutencao[] = new Manutencao[20];
-		Multa multa[] = new Multa[20];
-		Reclamacao reclamacao[] = new Reclamacao[20];
-		Encomenda encomenda[] = new Encomenda[20];
+
 		int opcao = 0;
 		int idsessao = 0;
 		int saida = 0;
 		int idusuario = 0;
-		int posicaouser = 0;
-		int posicaomulta = 0;
-		int posicaomanut = 0;
-		int posicaorecla = 0;
-		int posicaoencom = 0;
+
 		do {
 			pessoa[0] = new Sindico(0, "Sindico Padrao", "Sem CPF", "Sem Telefone", "Sem email", "Sindico");
 			if (idsessao == 0) {
@@ -96,8 +89,6 @@ public class Residaz {
 				case 1:
 
 					if (useratual instanceof Sindico) {
-						// Tipo
-						posicaouser++;
 						System.out.println("Qual o tipo de usuario (Sindico/Morador/Porteiro/Zelador): ");
 						ler.nextLine();
 						String tipousuario = ler.nextLine();
@@ -130,19 +121,23 @@ public class Residaz {
 						System.out.println("Digite o email do usuario: ");
 						String email = ler.nextLine();
 						if (tipousuario.equalsIgnoreCase("sindico")) {
-							pessoa[posicaouser] = new Sindico(idusuario, nomeusuario, cpf, telefone, email,
+							Pessoa sindico = new Sindico(idusuario, nomeusuario, cpf, telefone, email,
 									tipousuario);
+							sindico.cadastrarUsuario();
 						} else if (tipousuario.equalsIgnoreCase("morador")) {
 							System.out.println("Digite o apartamento do usuario: ");
 							String apartamento = ler.nextLine();
-							pessoa[posicaouser] = new Morador(idusuario, nomeusuario, cpf, telefone, email, tipousuario,
+							Morador morador = new Morador(idusuario, nomeusuario, cpf, telefone, email, tipousuario,
 									apartamento);
+							morador.cadastrarUsuario();
 						} else if (tipousuario.equalsIgnoreCase("porteiro")) {
-							pessoa[posicaouser] = new Porteiro(idusuario, nomeusuario, cpf, telefone, email,
+							Pessoa porteiro = new Porteiro(idusuario, nomeusuario, cpf, telefone, email,
 									tipousuario);
+							porteiro.cadastrarUsuario();
 						} else if (tipousuario.equalsIgnoreCase("zelador")) {
-							pessoa[posicaouser] = new Zelador(idusuario, nomeusuario, cpf, telefone, email,
+							Pessoa zelador = new Zelador(idusuario, nomeusuario, cpf, telefone, email,
 									tipousuario);
+							zelador.cadastrarUsuario();
 						}
 
 					} else if (useratual instanceof Morador) {
@@ -153,7 +148,8 @@ public class Residaz {
 						String descricao = ler.nextLine();
 						System.out.println("Digite o data que a reclamacao foi feita: ");
 						String data = ler.nextLine();
-						reclamacao[posicaorecla].cadastrarReclamacao(titulo, descricao, data, useratual);
+						// reclamacao[posicaorecla].cadastrarReclamacao(titulo, descricao, data,
+						// useratual);
 					} else if (useratual instanceof Porteiro) {
 						ler.nextLine();
 						System.out.println("Digite o nome da encomenda: ");
@@ -164,8 +160,8 @@ public class Residaz {
 						String data = ler.nextLine();
 						System.out.println("Digite o apartamento da encomenda: ");
 						String apart = ler.nextLine();
-						encomenda[posicaoencom].cadastrarEncomenda(nome, descricao, data, apart, pessoa);
-						posicaoencom++;
+						Encomenda encomenda = new Encomenda(nome, descricao, data, apart);
+						encomenda.cadastrarEncomenda();
 					} else if (useratual instanceof Zelador) {
 						ler.nextLine();
 						System.out.println("Digite o titulo da manutencao: ");
@@ -178,10 +174,14 @@ public class Residaz {
 						String local = ler.nextLine();
 						System.out.println("Digite o tipo de manutencao: ");
 						String tipo = ler.nextLine();
+						System.out.println("Digite o apartamento: ");
+						String apartamento = ler.nextLine();
 						System.out.println("Digite o valor da manutencao: ");
 						double valor = ler.nextDouble();
-						manutencao[posicaomanut].gerarRelatorioManu(titulo, descricao, data, local, tipo, valor);
-						posicaomanut++;
+						Manutencao manutencao = new Manutencao(titulo, descricao, data, local, tipo, apartamento,
+								valor);
+						manutencao.cadastrarManutencao();
+
 					}
 					break;
 				case 2:
@@ -212,7 +212,8 @@ public class Residaz {
 						String tipo = ler.nextLine();
 						System.out.println("Digite o custo da manutencao: ");
 						double custo = ler.nextDouble();
-						manutencao[posicaomanut].gerarRelatorioManu(titulo, descricao, data, local, tipo, custo);
+						Manutencao manutencao = new Manutencao(titulo, descricao, data, local, tipo, tipo, custo);
+						manutencao.cadastrarManutencao();
 
 					} else if (useratual instanceof Porteiro) {
 						ler.nextLine();
@@ -255,8 +256,9 @@ public class Residaz {
 						String tipo = ler.nextLine();
 						System.out.println("Digite o valor da manutencao: ");
 						double valor = ler.nextDouble();
-						manutencao[posicaomanut].gerarRelatorioManu(titulo, descricao, data, local, tipo, valor);
-						posicaomanut++;
+						Manutencao manutencao = new Manutencao(titulo, descricao, data, local, tipo, tipo, valor);
+						manutencao.cadastrarManutencao();
+
 					} else if (useratual instanceof Morador) {
 
 					} else if (useratual instanceof Porteiro) {
@@ -278,11 +280,18 @@ public class Residaz {
 						double valor = ler.nextDouble();
 						System.out.println("Digite o apartamento do responsavel: ");
 						String apartamento = ler.nextLine();
-						multa[posicaomulta].cadastrarMulta(titulo, descricao, data, valor, apartamento, pessoa);
+						// multa[posicaomulta].cadastrarMulta(titulo, descricao, data, valor,
+						// apartamento, pessoa);
 					} else if (useratual instanceof Morador) {
-
+						System.out.println();
+						System.out.println("\nNome | Descricao | Data | Apartamento");
+						Encomenda.lerDoArquivo();
+						System.out.println("\n");
 					} else if (useratual instanceof Porteiro) {
-
+						System.out.println();
+						System.out.println("\nNome | Descricao | Data | Apartamento");
+						Encomenda.lerDoArquivo();
+						System.out.println("\n");
 					} else if (useratual instanceof Zelador) {
 
 					}
