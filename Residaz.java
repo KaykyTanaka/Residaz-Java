@@ -141,19 +141,27 @@ public class Residaz {
 							Pessoa sindico = new Sindico(idusuario, nomeusuario, cpf, telefone, email,
 									tipousuario);
 							sindico.cadastrarUsuario();
+							new Pessoa(){}.leDoArquivoEGeraUmVetor();
+							new Pessoa(){}.converterPessoas( pessoa );
 						} else if (tipousuario.equalsIgnoreCase("morador")) {
 							System.out.println("Digite o apartamento do usuario: ");
 							String apartamento = ler.nextLine();
 							Morador morador = new Morador(idusuario, nomeusuario, cpf, telefone, email, tipousuario);
 							morador.cadastrarUsuario();
+							new Pessoa(){}.leDoArquivoEGeraUmVetor();
+							new Pessoa(){}.converterPessoas( pessoa );
 						} else if (tipousuario.equalsIgnoreCase("porteiro")) {
 							Pessoa porteiro = new Porteiro(idusuario, nomeusuario, cpf, telefone, email,
-									tipousuario);
+								tipousuario);
 							porteiro.cadastrarUsuario();
+							new Pessoa(){}.leDoArquivoEGeraUmVetor();
+							new Pessoa(){}.converterPessoas( pessoa );
 						} else if (tipousuario.equalsIgnoreCase("zelador")) {
 							Pessoa zelador = new Zelador(idusuario, nomeusuario, cpf, telefone, email,
 									tipousuario);
 							zelador.cadastrarUsuario();
+							new Pessoa(){}.leDoArquivoEGeraUmVetor();
+							new Pessoa(){}.converterPessoas( pessoa );
 						}
 
 					} else if (useratual.getTipo().equalsIgnoreCase( "morador" )) {
