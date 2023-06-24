@@ -9,8 +9,10 @@ public class Residaz {
 		String nomeusuario, cpf, telefone, email, titulo, descricao, data, providencia, local, tipo, nome, apart;
 		double valor;
 		int opc;
-
+		
 		do {
+			
+			
 			System.out.println("=== Residaz ===");
 			System.out.println("Selecione o Tipo de usuario: \n");
 			System.out.println("1) Sindico");
@@ -22,7 +24,7 @@ public class Residaz {
 			System.out.println("-----------");
 			System.out.print(">>> ");
 			opc = leia.nextInt();
-
+			
 			switch (opc) {
 				case 1:
 					int sindicoOpcao;
@@ -42,7 +44,10 @@ public class Residaz {
 						System.out.println("-----------");
 						System.out.print(">>> ");
 						sindicoOpcao = leia.nextInt();
+						
+						
 						switch (sindicoOpcao) {
+							
 							case 1:
 								System.out.println("Qual o tipo de usuario (Sindico/Morador/Porteiro/Zelador): ");
 								leiaStr.nextLine();
@@ -153,7 +158,10 @@ public class Residaz {
 							default:
 								System.out.println("Opcao invalida!");
 								break;
+								
 						}
+						
+									
 					} while (sindicoOpcao != 0);
 					break;
 				case 2:
@@ -382,6 +390,7 @@ public class Residaz {
 					System.out.println("Opcao invalida!");
 					break;
 			}
+			
 		} while (opc != 0);
 	}
 }
