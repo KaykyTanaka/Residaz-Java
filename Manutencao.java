@@ -37,14 +37,14 @@ public class Manutencao {
 	}
 
 	public void setTitulo(String titulo) {
-		if(titulo == null){
-			
+		if (titulo == null) {
+
 			throw new IllegalArgumentException("Titulo Invalido! Nao Pode Ser Nulo!");
-			}
-		if(titulo.length() < 2){
-			
+		}
+		if (titulo.length() < 2) {
+
 			throw new IllegalArgumentException("Titulo Invalido! Nao Pode ter menos de 2 caracteres!");
-			}
+		}
 		this.titulo = titulo;
 	}
 
@@ -53,14 +53,14 @@ public class Manutencao {
 	}
 
 	public void setDescricao(String descricao) {
-		if(descricao == null){
-			
+		if (descricao == null) {
+
 			throw new IllegalArgumentException("Descricao Invalida! Nao Pode Ser Nulo!");
-			}
-		if(descricao.length() < 2){
-			
+		}
+		if (descricao.length() < 2) {
+
 			throw new IllegalArgumentException("Descricao Invalida! Faca uma descricao melhor!");
-			}
+		}
 		this.descricao = descricao;
 	}
 
@@ -69,14 +69,14 @@ public class Manutencao {
 	}
 
 	public void setData(String data) {
-		if(data == null){
-			
+		if (data == null) {
+
 			throw new IllegalArgumentException("Data Invalida! Nao Pode Ser Nulo!");
-			}
-		if(data.length() < 8){
-			
+		}
+		if (data.length() < 8) {
+
 			throw new IllegalArgumentException("Data Invalido! Nao Pode ter menos de 8 caracteres!");
-			}
+		}
 		this.data = data;
 	}
 
@@ -85,14 +85,14 @@ public class Manutencao {
 	}
 
 	public void setLocal(String local) {
-		if(local == null){
-			
+		if (local == null) {
+
 			throw new IllegalArgumentException("Local Invalido! Nao Pode Ser Nulo!");
-			}
-		if(local.length() < 4){
-			
+		}
+		if (local.length() < 4) {
+
 			throw new IllegalArgumentException("Local Invalido! Digite um lugar que existe!");
-			}
+		}
 		this.local = local;
 	}
 
@@ -101,14 +101,14 @@ public class Manutencao {
 	}
 
 	public void setTipo(String tipo) {
-		if(tipo == null){
-			
+		if (tipo == null) {
+
 			throw new IllegalArgumentException("Tipo Invalido! Nao Pode Ser Nulo!");
-			}
-		if(tipo.length() < 2){
-			
+		}
+		if (tipo.length() < 2) {
+
 			throw new IllegalArgumentException("Tipo Invalido! Tipo de manutençao nao existente!");
-			}
+		}
 		this.tipo = tipo;
 	}
 
@@ -117,28 +117,28 @@ public class Manutencao {
 	}
 
 	public void setValor(double valor) {
-		
-		if(valor < 0){
-			
+
+		if (valor < 0) {
+
 			throw new IllegalArgumentException("Valor Invalido! Digite um valor correto!");
-			}
+		}
 		this.valor = valor;
 	}
 
 	public String getApartamento() {
-		
+
 		return apartamento;
 	}
 
-	public void setApartamento(String apartamento){
-		if(apartamento == null){
-			
+	public void setApartamento(String apartamento) {
+		if (apartamento == null) {
+
 			throw new IllegalArgumentException("apartamento Invalido! Nao Pode Ser Nulo!");
-			}
-		if(apartamento.length() < 1){
-			
+		}
+		if (apartamento.length() < 1) {
+
 			throw new IllegalArgumentException("apartamento Invalido! Este apartamento nao existe!");
-			}
+		}
 		this.apartamento = apartamento;
 	}
 

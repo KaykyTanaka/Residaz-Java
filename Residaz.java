@@ -12,62 +12,62 @@ public class Residaz {
 		int opc = -1;
 		boolean ok;
 		do {
-			do{
-			try{
-				ok = true;
-				System.out.println("=== Residaz ===");
-				System.out.println("Selecione o Tipo de usuario: \n");
-				System.out.println("1) Sindico");
-				System.out.println("2) Morador");
-				System.out.println("3) Porteiro");
-				System.out.println("4) Zelador");
-				System.out.println("-----------");
-				System.out.println("0) Finalizar");
-				System.out.println("-----------");
-				System.out.print(">>> ");
-				opc = leia.nextInt();
-				
-			}catch( InputMismatchException erro1 ){
-				System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage() );
-				ok = false;
-			}
-			leia.nextLine();
-			} while ( ! ok );
+			do {
+				try {
+					ok = true;
+					System.out.println("=== Residaz ===");
+					System.out.println("Selecione o Tipo de usuario: \n");
+					System.out.println("1) Sindico");
+					System.out.println("2) Morador");
+					System.out.println("3) Porteiro");
+					System.out.println("4) Zelador");
+					System.out.println("-----------");
+					System.out.println("0) Finalizar");
+					System.out.println("-----------");
+					System.out.print(">>> ");
+					opc = leia.nextInt();
+
+				} catch (InputMismatchException erro1) {
+					System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage());
+					ok = false;
+				}
+				leia.nextLine();
+			} while (!ok);
 			switch (opc) {
 				case 1:
 					int sindicoOpcao = -1;
 					do {
-						do{
-							try{
+						do {
+							try {
 								ok = true;
-						System.out.println("=== Residaz ===");
-						System.out.println(" | Sindico | \n");
-						System.out.println("1) Cadastrar Usuario");
-						System.out.println("2) Cadastrar Ocorrencia");
-						System.out.println("3) Gerar Relatorio de Manutencao");
-						System.out.println("4) Cadastrar Multa");
-						System.out.println("5) Visualizar Ocorrencias");
-						System.out.println("6) Visualizar Historio de Reclamacao");
-						System.out.println("7) Visualizar Usuarios");
-						System.out.println("8) Visualizar Manutencoes");
-						System.out.println("-----------");
-						System.out.println("0) Sair");
-						System.out.println("-----------");
-						System.out.print(">>> ");
-						sindicoOpcao = leia.nextInt();
-							}catch( InputMismatchException erro1 ){
-								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage() );
+								System.out.println("=== Residaz ===");
+								System.out.println(" | Sindico | \n");
+								System.out.println("1) Cadastrar Usuario");
+								System.out.println("2) Cadastrar Ocorrencia");
+								System.out.println("3) Gerar Relatorio de Manutencao");
+								System.out.println("4) Cadastrar Multa");
+								System.out.println("5) Visualizar Ocorrencias");
+								System.out.println("6) Visualizar Historio de Reclamacao");
+								System.out.println("7) Visualizar Usuarios");
+								System.out.println("8) Visualizar Manutencoes");
+								System.out.println("-----------");
+								System.out.println("0) Sair");
+								System.out.println("-----------");
+								System.out.print(">>> ");
+								sindicoOpcao = leia.nextInt();
+							} catch (InputMismatchException erro1) {
+								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage());
 								ok = false;
-						}
-						leia.nextLine();
-						} while ( ! ok );
+							}
+							leia.nextLine();
+						} while (!ok);
 						switch (sindicoOpcao) {
-							
+
 							case 1:
-								System.out.println("Qual o tipo de usuario (Sindico/Morador/Porteiro/Zelador): ");
-								leiaStr.nextLine();
-								String tipousuario = leiaStr.nextLine();
 								boolean igual = false;
+								System.out.println("Qual o tipo de usuario (Sindico/Morador/Porteiro/Zelador): ");
+								String tipousuario = leiaStr.nextLine();
+
 								if (tipousuario.equalsIgnoreCase("sindico") || tipousuario.equalsIgnoreCase("morador")
 										|| tipousuario.equalsIgnoreCase("porteiro")
 										|| tipousuario.equalsIgnoreCase("zelador")) {
@@ -173,37 +173,36 @@ public class Residaz {
 							default:
 								System.out.println("Opcao invalida!");
 								break;
-								
+
 						}
-						
-									
+
 					} while (sindicoOpcao != 0);
 					break;
 				case 2:
 					int moradorOpcao = -1;
 					do {
-						do{
-							try{
+						do {
+							try {
 								ok = true;
-						System.out.println("=== Residaz ===");
-						System.out.println("| Morador | \n");
-						System.out.println("1) Cadastrar Reclamacao");
-						System.out.println("2) Solicitar Manutencao");
-						System.out.println("3) Visualizar Multa");
-						System.out.println("4) Visualizar Encomenda");
-						System.out.println("5) Visualizar Ocorrencias");
-						System.out.println("6) Visualizar Manutencoes");
-						System.out.println("-----------");
-						System.out.println("0) Sair");
-						System.out.println("-----------");
-						System.out.print(">>> ");
-						moradorOpcao = leia.nextInt();
-							}catch( InputMismatchException erro1 ){
-								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage() );
+								System.out.println("=== Residaz ===");
+								System.out.println("| Morador | \n");
+								System.out.println("1) Cadastrar Reclamacao");
+								System.out.println("2) Solicitar Manutencao");
+								System.out.println("3) Visualizar Multa");
+								System.out.println("4) Visualizar Encomenda");
+								System.out.println("5) Visualizar Ocorrencias");
+								System.out.println("6) Visualizar Manutencoes");
+								System.out.println("-----------");
+								System.out.println("0) Sair");
+								System.out.println("-----------");
+								System.out.print(">>> ");
+								moradorOpcao = leia.nextInt();
+							} catch (InputMismatchException erro1) {
+								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage());
 								ok = false;
 							}
-						leia.nextLine();
-						}while ( ! ok );
+							leia.nextLine();
+						} while (!ok);
 						switch (moradorOpcao) {
 							case 1:
 								System.out.println("Digite o titulo da reclamacao: ");
@@ -268,27 +267,27 @@ public class Residaz {
 				case 3:
 					int porteiroOpcao = -1;
 					do {
-						do{
-							try{
-								ok = true;	
-						System.out.println("=== Residaz ===");
-						System.out.println("| Porteiro | \n");
-						System.out.println("1) Cadastrar Encomenda");
-						System.out.println("2) Cadastrar Ocorrencia");
-						System.out.println("3) Visualizar Ocorrencias");
-						System.out.println("4) Visualizar Encomenda");
-						System.out.println("5) Visualizar Manutencoes");
-						System.out.println("-----------");
-						System.out.println("0) Sair");
-						System.out.println("-----------");
-						System.out.print(">>> ");
-						porteiroOpcao = leia.nextInt();
-							}catch( InputMismatchException erro1 ){
-								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage() );
+						do {
+							try {
+								ok = true;
+								System.out.println("=== Residaz ===");
+								System.out.println("| Porteiro | \n");
+								System.out.println("1) Cadastrar Encomenda");
+								System.out.println("2) Cadastrar Ocorrencia");
+								System.out.println("3) Visualizar Ocorrencias");
+								System.out.println("4) Visualizar Encomenda");
+								System.out.println("5) Visualizar Manutencoes");
+								System.out.println("-----------");
+								System.out.println("0) Sair");
+								System.out.println("-----------");
+								System.out.print(">>> ");
+								porteiroOpcao = leia.nextInt();
+							} catch (InputMismatchException erro1) {
+								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage());
 								ok = false;
 							}
-						leia.nextLine();
-						}while ( ! ok );						
+							leia.nextLine();
+						} while (!ok);
 						switch (porteiroOpcao) {
 							case 1:
 								System.out.println("Digite o nome da encomenda: ");
@@ -344,27 +343,27 @@ public class Residaz {
 				case 4:
 					int zeladorOpcao = -1;
 					do {
-						do{
-							try{
+						do {
+							try {
 								ok = true;
-						System.out.println("=== Residaz ===");
-						System.out.println("| Zelador | \n");
-						System.out.println("1) Gerar Relatorio de Manutencao");
-						System.out.println("2) Cadastrar Ocorrencia");
-						System.out.println("3) Visualizar Historico de Reclamacao");
-						System.out.println("4) Visualizar Manutencoes");
-						System.out.println("5) Visualizar Ocorrencias");
-						System.out.println("-----------");
-						System.out.println("0) Sair");
-						System.out.println("-----------");
-						System.out.print(">>> ");
-						zeladorOpcao = leia.nextInt();
-							}catch( InputMismatchException erro1 ){
-								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage() );
+								System.out.println("=== Residaz ===");
+								System.out.println("| Zelador | \n");
+								System.out.println("1) Gerar Relatorio de Manutencao");
+								System.out.println("2) Cadastrar Ocorrencia");
+								System.out.println("3) Visualizar Historico de Reclamacao");
+								System.out.println("4) Visualizar Manutencoes");
+								System.out.println("5) Visualizar Ocorrencias");
+								System.out.println("-----------");
+								System.out.println("0) Sair");
+								System.out.println("-----------");
+								System.out.print(">>> ");
+								zeladorOpcao = leia.nextInt();
+							} catch (InputMismatchException erro1) {
+								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage());
 								ok = false;
 							}
-						leia.nextLine();
-						}while ( ! ok );						
+							leia.nextLine();
+						} while (!ok);
 						switch (zeladorOpcao) {
 							case 1:
 								System.out.println("Digite o titulo da manutencao: ");
@@ -432,7 +431,7 @@ public class Residaz {
 					System.out.println("Opcao invalida!");
 					break;
 			}
-			
+
 		} while (opc != 0);
 	}
 }

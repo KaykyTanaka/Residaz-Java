@@ -28,32 +28,32 @@ public class Ocorrencia {
 	}
 
 	public void setTitulo(String titulo) {
-		
-		if(titulo == null){
-			
+
+		if (titulo == null) {
+
 			throw new IllegalArgumentException("Titulo Invalido! Nao Pode Ser Nulo!");
-			}
-		if(titulo.length() < 2){
-			
+		}
+		if (titulo.length() < 2) {
+
 			throw new IllegalArgumentException("Titulo Invalido! Nao Pode ter menos de 2 caracteres!");
-			}
-			this.titulo = titulo;
+		}
+		this.titulo = titulo;
 	}
 
 	public String getDescricao() {
-		
+
 		return descricao;
 	}
 
 	public void setDescricao(String descricao) {
-		if(descricao == null){
-			
+		if (descricao == null) {
+
 			throw new IllegalArgumentException("Descricao Invalida! Nao Pode Ser Nulo!");
-			}
-		if(descricao.length() < 2){
-			
+		}
+		if (descricao.length() < 2) {
+
 			throw new IllegalArgumentException("Descricao Invalida! Faca uma descricao melhor!");
-			}
+		}
 		this.descricao = descricao;
 	}
 
@@ -62,14 +62,14 @@ public class Ocorrencia {
 	}
 
 	public void setData(String data) {
-		if(data == null){
-			
+		if (data == null) {
+
 			throw new IllegalArgumentException("Data Invalida! Nao Pode Ser Nulo!");
-			}
-		if(data.length() < 8){
-			
+		}
+		if (data.length() < 8) {
+
 			throw new IllegalArgumentException("Data Invalido! Nao Pode ter menos de 8 caracteres!");
-			}
+		}
 		this.data = data;
 	}
 
@@ -78,14 +78,14 @@ public class Ocorrencia {
 	}
 
 	public void setProvidencias(String providencias) {
-		if(providencias == null){
-			
+		if (providencias == null) {
+
 			throw new IllegalArgumentException("Providencia Invalida! Nao Pode Ser Nulo!");
-			}
-		if(providencias.length() < 6){
-			
+		}
+		if (providencias.length() < 6) {
+
 			throw new IllegalArgumentException("Providencia Invalida! Descreva-a melhor!");
-			}
+		}
 		this.providencias = providencias;
 	}
 
