@@ -5,8 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Reclamacao {
-	private static Morador morador;
-	private static String titulo, descricao, data, autor;
+
+	private static String titulo, descricao, data;
 
 	private static String arquivo = "dadosReclamacao.txt",
 			separador = " | ";
@@ -15,14 +15,13 @@ public class Reclamacao {
 		setTitulo("");
 		setDescricao("");
 		setData("");
-		setAutor("");
+
 	}
 
-	public Reclamacao(String titulo, String descricao, String data, Pessoa useratual) {
+	public Reclamacao(String titulo, String descricao, String data) {
 		setTitulo(titulo);
 		setDescricao(descricao);
 		setData(data);
-		setAutor(useratual.getNome());
 
 	}
 
@@ -50,24 +49,15 @@ public class Reclamacao {
 		this.data = data;
 	}
 
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-
 	public String visualizarReclamacao() {
 		return "Titulo da encomenda: " + getTitulo() + "\nDescricao da encomenda: " + getDescricao() +
-				"\nData da encomenda: " + getData() + "Autor: " + morador.getNome();
+				"\nData da encomenda: " + getData();
 	}
 
 	public void cadastrarReclamacao(String titulo, String descricao, String data, Pessoa useratual) {
 		setTitulo(titulo);
 		setDescricao(descricao);
 		setData(data);
-		setAutor(useratual.getNome());
 	}
 
 	public static boolean cadastrarReclamacao() {
@@ -82,8 +72,6 @@ public class Reclamacao {
 			bw.write(descricao);
 			bw.write(separador);
 			bw.write(data);
-			bw.write(separador);
-			bw.write(autor);
 			bw.newLine();
 
 			bw.close();
