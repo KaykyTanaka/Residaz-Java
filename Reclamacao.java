@@ -1,9 +1,30 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Reclamacao {
-	private Morador morador;
-	private String titulo;
-	private String descricao;
-	private String data;
-	private String autor;
+	private static Morador morador;
+	private static String titulo, descricao, data, autor;
+
+	private static String arquivo = "dadosReclamacao.txt",
+			separador = " | ";
+
+	public Reclamacao() {
+		setTitulo("");
+		setDescricao("");
+		setData("");
+		setAutor("");
+	}
+
+	public Reclamacao(String titulo, String descricao, String data, Pessoa useratual) {
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setData(data);
+		setAutor(useratual.getNome());
+
+	}
 
 	public String getTitulo() {
 		return titulo;
@@ -47,5 +68,61 @@ public class Reclamacao {
 		setDescricao(descricao);
 		setData(data);
 		setAutor(useratual.getNome());
+	}
+
+	public static boolean cadastrarReclamacao() {
+
+		try {
+
+			FileWriter fw = new FileWriter(arquivo, true);
+
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(titulo);
+			bw.write(separador);
+			bw.write(descricao);
+			bw.write(separador);
+			bw.write(data);
+			bw.write(separador);
+			bw.write(autor);
+			bw.newLine();
+
+			bw.close();
+
+			fw.close();
+
+			return true;
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+			return false;
+		}
+	}
+
+	public static boolean lerDoArquivo() {
+
+		try {
+
+			FileReader fr = new FileReader(arquivo);
+
+			BufferedReader br = new BufferedReader(fr);
+
+			while (br.ready()) {
+
+				String linha = br.readLine();
+				System.out.println(linha);
+			}
+
+			br.close();
+
+			fr.close();
+
+			return true;
+
+		} catch (IOException e) {
+
+			return false;
+		}
 	}
 }

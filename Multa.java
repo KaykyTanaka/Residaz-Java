@@ -1,9 +1,32 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Multa {
-	private Morador morador;
-	private String titulo;
-	private String descricao;
-	private String data;
-	private double valor;
+	private static String titulo, descricao, data, apartamento;
+	private static double valor;
+
+	private static String arquivo = "dadosMulta.txt",
+			separador = " | ";
+
+	public Multa() {
+		setTitulo("");
+		setDescricao("");
+		setData("");
+		setApartamento("");
+		setValor(0.0);
+	}
+
+	public Multa(String titulo, String descricao, String data, double valor, String apartamento) {
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setData(data);
+		setApartamento(apartamento);
+		setValor(valor);
+
+	}
 
 	public String getTitulo() {
 		return titulo;
@@ -37,26 +60,75 @@ public class Multa {
 		this.valor = valor;
 	}
 
+	public String getApartamento() {
+		return apartamento;
+	}
+
+	public void setApartamento(String apartamento) {
+		this.apartamento = apartamento;
+	}
+
 	public String visualizarMulta() {
 		return "Titulo da multa: " + getTitulo() + "\nDescricao da multa: " + getDescricao() + "\nData da multa: "
 				+ getData() +
-				"\nValor: " + getValor() + "Apart.: " + morador.getApartamento();
+				"\nValor: " + getValor() + "Apart.: " + getApartamento();
 	}
 
-	public void cadastrarMulta(String titulo, String descricao, String data, double valor, String apartamento,
-			Pessoa pessoa[]) {
-		for (int i = 0; i < pessoa.length; i++) {
-			if (((Morador) pessoa[i]).getApartamento().equalsIgnoreCase(apartamento)) {
-				morador.setApartamento(apartamento);
-			}
-			if (i == (pessoa.length - 1)) {
-				System.out.println("Apartamento invalido, falha no cadastro...");
-				return;
-			}
+	public static boolean cadastrarMulta() {
+
+		try {
+
+			FileWriter fw = new FileWriter(arquivo, true);
+
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(titulo);
+			bw.write(separador);
+			bw.write(descricao);
+			bw.write(separador);
+			bw.write(data);
+			bw.write(separador);
+			bw.write(apartamento);
+			bw.write(separador);
+			bw.write("" + valor);
+			bw.newLine();
+
+			bw.close();
+
+			fw.close();
+
+			return true;
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+			return false;
 		}
-		setTitulo(titulo);
-		setDescricao(descricao);
-		setData(data);
-		setValor(valor);
+	}
+
+	public static boolean lerDoArquivo() {
+
+		try {
+
+			FileReader fr = new FileReader(arquivo);
+
+			BufferedReader br = new BufferedReader(fr);
+
+			while (br.ready()) {
+
+				String linha = br.readLine();
+				System.out.println(linha);
+			}
+
+			br.close();
+
+			fr.close();
+
+			return true;
+
+		} catch (IOException e) {
+
+			return false;
+		}
 	}
 }

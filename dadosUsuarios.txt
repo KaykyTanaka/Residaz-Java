@@ -1,2 +1,0 @@
-1|Rafael|00000000000| 999999999|rafa@email.com|Morador
-2|Jose|12345678901|123456789|js@email.com|Porteiro

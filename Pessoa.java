@@ -9,11 +9,10 @@ public class Pessoa {
 	private static String nome, cpf, telefone, email, tipo;
 	private static String arquivo = "dadosUsuarios.txt", separador = "|", separador2 = "\\|";
 	private static String[] pessoaS = new String[20];
-	
+
 	private Pessoa[] pessoaNS = new Pessoa[20];
 	private int idNS;
 	private String nomeNS, cpfNS, telefoneNS, emailNS, tipoNS;
-	
 
 	public Pessoa() {
 		setId(0);
@@ -46,7 +45,7 @@ public class Pessoa {
 	}
 
 	public void setNome(String nome) {
-		 this.nomeNS = nome;
+		this.nomeNS = nome;
 	}
 
 	public String getCpf() {
@@ -111,6 +110,7 @@ public class Pessoa {
 			return false;
 		}
 	}
+
 	public static boolean lerDoArquivo() {
 		try {
 
@@ -127,6 +127,7 @@ public class Pessoa {
 			return false;
 		}
 	}
+
 	public static Pessoa[] leDoArquivoEGeraUmVetor() {
 		int qtde = 20, contador = 1;
 		Pessoa[] usu = new Pessoa[qtde];
@@ -136,11 +137,10 @@ public class Pessoa {
 			while (contador < qtde && br.ready()) {
 				String linha = br.readLine();
 				pessoaS[contador] = linha;
-				//System.out.println( pessoaS[contador] );
-				// System.out.println ( linha );
 				String campos[] = linha.split(separador2);
-				usu[contador] = new Pessoa(Integer.parseInt(campos[0]), campos[1], campos[2], campos[3], campos[4], campos[5]);
-				contador++;	
+				usu[contador] = new Pessoa(Integer.parseInt(campos[0]), campos[1], campos[2], campos[3], campos[4],
+						campos[5]);
+				contador++;
 			}
 			br.close();
 			fr.close();
@@ -149,36 +149,25 @@ public class Pessoa {
 			return null;
 		}
 	}
-	public void converterPessoas( Pessoa pessoa[] ){
-		for(int i=1;i<pessoaS.length-1 && pessoaS[i] != null;i++){
-			if(pessoaNS[i] == null){
+
+	public void converterPessoas(Pessoa pessoa[]) {
+		for (int i = 1; i < pessoaS.length - 1 && pessoaS[i] != null; i++) {
+			if (pessoaNS[i] == null) {
 				String campos[] = this.pessoaS[i].split("\\|");
-				/*for( int j=0; j<campos.length;j++){
-					System.out.println( campos[j] );
-				}*/
-				pessoaNS[i] = new Pessoa(Integer.parseInt(campos[0]), campos[1], campos[2], campos[3], campos[4], campos[5]);
+
+				pessoaNS[i] = new Pessoa(Integer.parseInt(campos[0]), campos[1], campos[2], campos[3], campos[4],
+						campos[5]);
 				pessoa[i] = pessoaNS[i];
-				//System.out.println( pessoaNS[i]);
-			}else{ break; }
+			} else {
+				break;
+			}
 		}
 	}
-	/*public void getPessoaNS(){
-		for(int i=0;i<pessoaNS.length && pessoaNS[i] != null;i++){
-			System.out.println( pessoaNS[i]);
-		}
-	}*/
-	/*public int tamanhoPessoa(){
-		int contador = 1;
-		for(int i=1;i<pessoaS.length-1 && pessoaS[i] != null;i++){
-			contador++;
-		}
-		return contador;
-	}*/
+
 	@Override
 	public String toString() {
 		return "[ID: " + getId() + "] [Nome: " + getNome() + "] [CPF: " + getCpf() + "] \n[Telefone: " + getTelefone() +
 				"] [Email: " + getEmail() + "] [Tipo de usuario: " + getTipo() + "]";
 	}
 
-	
 }
