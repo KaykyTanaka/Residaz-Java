@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.io.IOException;
+import java.util.InputMismatchException;
 
 public class Residaz {
 	public static void main(String[] args) {
@@ -8,27 +9,37 @@ public class Residaz {
 
 		String nomeusuario, cpf, telefone, email, titulo, descricao, data, providencia, local, tipo, nome, apart;
 		double valor;
-		int opc;
-		
+		int opc = -1;
+		boolean ok;
 		do {
-			
-			
-			System.out.println("=== Residaz ===");
-			System.out.println("Selecione o Tipo de usuario: \n");
-			System.out.println("1) Sindico");
-			System.out.println("2) Morador");
-			System.out.println("3) Porteiro");
-			System.out.println("4) Zelador");
-			System.out.println("-----------");
-			System.out.println("0) Finalizar");
-			System.out.println("-----------");
-			System.out.print(">>> ");
-			opc = leia.nextInt();
-			
+			do{
+			try{
+				ok = true;
+				System.out.println("=== Residaz ===");
+				System.out.println("Selecione o Tipo de usuario: \n");
+				System.out.println("1) Sindico");
+				System.out.println("2) Morador");
+				System.out.println("3) Porteiro");
+				System.out.println("4) Zelador");
+				System.out.println("-----------");
+				System.out.println("0) Finalizar");
+				System.out.println("-----------");
+				System.out.print(">>> ");
+				opc = leia.nextInt();
+				
+			}catch( InputMismatchException erro1 ){
+				System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage() );
+				ok = false;
+			}
+			leia.nextLine();
+			} while ( ! ok );
 			switch (opc) {
 				case 1:
-					int sindicoOpcao;
+					int sindicoOpcao = -1;
 					do {
+						do{
+							try{
+								ok = true;
 						System.out.println("=== Residaz ===");
 						System.out.println(" | Sindico | \n");
 						System.out.println("1) Cadastrar Usuario");
@@ -44,8 +55,12 @@ public class Residaz {
 						System.out.println("-----------");
 						System.out.print(">>> ");
 						sindicoOpcao = leia.nextInt();
-						
-						
+							}catch( InputMismatchException erro1 ){
+								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage() );
+								ok = false;
+						}
+						leia.nextLine();
+						} while ( ! ok );
 						switch (sindicoOpcao) {
 							
 							case 1:
@@ -165,8 +180,11 @@ public class Residaz {
 					} while (sindicoOpcao != 0);
 					break;
 				case 2:
-					int moradorOpcao;
+					int moradorOpcao = -1;
 					do {
+						do{
+							try{
+								ok = true;
 						System.out.println("=== Residaz ===");
 						System.out.println("| Morador | \n");
 						System.out.println("1) Cadastrar Reclamacao");
@@ -180,6 +198,12 @@ public class Residaz {
 						System.out.println("-----------");
 						System.out.print(">>> ");
 						moradorOpcao = leia.nextInt();
+							}catch( InputMismatchException erro1 ){
+								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage() );
+								ok = false;
+							}
+						leia.nextLine();
+						}while ( ! ok );
 						switch (moradorOpcao) {
 							case 1:
 								System.out.println("Digite o titulo da reclamacao: ");
@@ -242,8 +266,11 @@ public class Residaz {
 					} while (moradorOpcao != 0);
 					break;
 				case 3:
-					int porteiroOpcao;
+					int porteiroOpcao = -1;
 					do {
+						do{
+							try{
+								ok = true;	
 						System.out.println("=== Residaz ===");
 						System.out.println("| Porteiro | \n");
 						System.out.println("1) Cadastrar Encomenda");
@@ -256,6 +283,12 @@ public class Residaz {
 						System.out.println("-----------");
 						System.out.print(">>> ");
 						porteiroOpcao = leia.nextInt();
+							}catch( InputMismatchException erro1 ){
+								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage() );
+								ok = false;
+							}
+						leia.nextLine();
+						}while ( ! ok );						
 						switch (porteiroOpcao) {
 							case 1:
 								System.out.println("Digite o nome da encomenda: ");
@@ -309,8 +342,11 @@ public class Residaz {
 					} while (porteiroOpcao != 0);
 					break;
 				case 4:
-					int zeladorOpcao;
+					int zeladorOpcao = -1;
 					do {
+						do{
+							try{
+								ok = true;
 						System.out.println("=== Residaz ===");
 						System.out.println("| Zelador | \n");
 						System.out.println("1) Gerar Relatorio de Manutencao");
@@ -323,6 +359,12 @@ public class Residaz {
 						System.out.println("-----------");
 						System.out.print(">>> ");
 						zeladorOpcao = leia.nextInt();
+							}catch( InputMismatchException erro1 ){
+								System.out.println("Opcao invalida, digite um numero! " + erro1.getMessage() );
+								ok = false;
+							}
+						leia.nextLine();
+						}while ( ! ok );						
 						switch (zeladorOpcao) {
 							case 1:
 								System.out.println("Digite o titulo da manutencao: ");
