@@ -30,6 +30,14 @@ public class Pessoa {
 	}
 
 	public void setNome(String nome) {
+		if(nome == null){
+			
+			throw new IllegalArgumentException("Nome Invalido! Nao Pode Ser Nulo!");
+			}
+		if(nome.length() < 3){
+			
+			throw new IllegalArgumentException("Nome Invalido! Coloque o nome certo!");
+			}
 		this.nome = nome;
 	}
 
@@ -38,6 +46,14 @@ public class Pessoa {
 	}
 
 	public void setCpf(String cpf) {
+		if(cpf == null){
+			
+			throw new IllegalArgumentException("CPF Invalido! Nao Pode Ser Nulo!");
+			}
+		if(cpf.length() <11  ){
+			
+			throw new IllegalArgumentException("CPF Invalido! Coloque um cpf dessa forma: xxx-xxx-xxx-xx !");
+			}
 		this.cpf = cpf;
 	}
 
@@ -46,6 +62,14 @@ public class Pessoa {
 	}
 
 	public void setTelefone(String telefone) {
+		if(telefone == null){
+			
+			throw new IllegalArgumentException("Telefone Invalido! Nao Pode Ser Nulo!");
+			}
+		if(telefone.length() <8  ){
+			
+			throw new IllegalArgumentException("Telefone Invalido! Coloque um Telefone dessa forma: xxxx-xxxx !");
+			}
 		this.telefone = telefone;
 	}
 
@@ -54,6 +78,14 @@ public class Pessoa {
 	}
 
 	public void setEmail(String email) {
+		if(email == null){
+			
+			throw new IllegalArgumentException("Email Invalido! Nao Pode Ser Nulo!");
+			}
+		if(email.length() <10  ){
+			
+			throw new IllegalArgumentException("Email Invalido! Coloque um email dessa forma: x@xxxxx.xxx !");
+			}
 		this.email = email;
 	}
 
@@ -62,6 +94,14 @@ public class Pessoa {
 	}
 
 	public void setTipo(String tipo) {
+		if(tipo == null){
+			
+			throw new IllegalArgumentException("Tipo Invalido! Nao Pode Ser Nulo!");
+			}
+		if(tipo.length() <1  ){
+			
+			throw new IllegalArgumentException("Tipo Invalido! Coloque um tipo valido!");
+			}
 		this.tipo = tipo;
 	}
 
