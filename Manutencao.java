@@ -148,7 +148,7 @@ public class Manutencao {
 				"\nValor: " + getValor() + "Apart.: " + getApartamento();
 	}
 
-	public static boolean cadastrarManutencao() {
+	public static boolean cadastrar() {
 
 		try {
 

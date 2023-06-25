@@ -93,7 +93,7 @@ public class Encomenda {
 				"\nData da encomenda: " + getData() + "Apart.: " + getApartamento();
 	}
 
-	public static boolean cadastrarEncomenda() {
+	public static boolean cadastrar() {
 
 		try {
 

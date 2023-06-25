@@ -110,7 +110,7 @@ public class Multa {
 				"\nValor: " + getValor() + "Apart.: " + getApartamento();
 	}
 
-	public static boolean cadastrarMulta() {
+	public static boolean cadastrar() {
 
 		try {
 

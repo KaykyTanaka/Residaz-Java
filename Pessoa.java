@@ -105,7 +105,7 @@ public class Pessoa {
 		this.tipo = tipo;
 	}
 
-	public static boolean cadastrarUsuario() {
+	public static boolean cadastrar() {
 
 		try {
 

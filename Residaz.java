@@ -96,7 +96,7 @@ public class Residaz {
 								System.out.println("Digite o email do usuario: ");
 								email = leiaStr.nextLine();
 								Pessoa pessoa = new Pessoa(nomeusuario, cpf, telefone, email, tipousuario);
-								pessoa.cadastrarUsuario();
+								pessoa.cadastrar();
 
 								break;
 							case 2:
@@ -109,7 +109,7 @@ public class Residaz {
 								System.out.println("Digite a providencias da ocorrencia: ");
 								providencia = leiaStr.nextLine();
 								Ocorrencia ocorrenciaS = new Ocorrencia(titulo, descricao, data, providencia);
-								ocorrenciaS.cadastrarOcorrencia();
+								ocorrenciaS.cadastrar();
 								break;
 							case 3:
 								System.out.println("Digite o titulo da manutencao: ");
@@ -126,7 +126,7 @@ public class Residaz {
 								valor = leia.nextDouble();
 								Manutencao manutencao = new Manutencao(titulo, descricao, data, local, tipo, tipo,
 										valor);
-								manutencao.cadastrarManutencao();
+								manutencao.cadastrar();
 								break;
 							case 4:
 								System.out.println("Digite o titulo da multa: ");
@@ -140,7 +140,7 @@ public class Residaz {
 								System.out.println("Digite o apartamento do responsavel: ");
 								String apartamento = leiaStr.nextLine();
 								Multa multa = new Multa(titulo, descricao, data, valor, apartamento);
-								multa.cadastrarMulta();
+								multa.cadastrar();
 								break;
 							case 5:
 								System.out.println();
@@ -212,7 +212,7 @@ public class Residaz {
 								System.out.println("Digite o data que a reclamacao foi feita: ");
 								data = leiaStr.nextLine();
 								Reclamacao reclamacaoM = new Reclamacao(titulo, descricao, data);
-								reclamacaoM.cadastrarReclamacao();
+								reclamacaoM.cadastrar();
 								break;
 							case 2:
 								System.out.println("Digite o titulo da manutencao: ");
@@ -229,7 +229,7 @@ public class Residaz {
 								double custo = leiaStr.nextDouble();
 								Manutencao manutencaoM = new Manutencao(titulo, descricao, data, local, tipo, tipo,
 										custo);
-								manutencaoM.cadastrarManutencao();
+								manutencaoM.cadastrar();
 								break;
 							case 3:
 								System.out.println();
@@ -299,7 +299,7 @@ public class Residaz {
 								System.out.println("Digite o apartamento da encomenda: ");
 								apart = leiaStr.nextLine();
 								Encomenda encomenda = new Encomenda(nome, descricao, data, apart);
-								encomenda.cadastrarEncomenda();
+								encomenda.cadastrar();
 								break;
 							case 2:
 								System.out.println("Digite o titulo da ocorrencia: ");
@@ -311,7 +311,7 @@ public class Residaz {
 								System.out.println("Digite a providencias da ocorrencia: ");
 								providencia = leiaStr.nextLine();
 								Ocorrencia ocorrenciaP = new Ocorrencia(titulo, descricao, data, providencia);
-								ocorrenciaP.cadastrarOcorrencia();
+								ocorrenciaP.cadastrar();
 								break;
 							case 3:
 								System.out.println();
@@ -382,7 +382,7 @@ public class Residaz {
 								valor = leia.nextDouble();
 								Manutencao manutencaoZ = new Manutencao(titulo, descricao, data, local, tipo, apart,
 										valor);
-								manutencaoZ.cadastrarManutencao();
+								manutencaoZ.cadastrar();
 								break;
 							case 2:
 								System.out.println("Digite o titulo da ocorrencia: ");
@@ -394,7 +394,7 @@ public class Residaz {
 								System.out.println("Digite a providencias da ocorrencia: ");
 								providencia = leiaStr.nextLine();
 								Ocorrencia ocorrenciaZ = new Ocorrencia(titulo, descricao, data, providencia);
-								ocorrenciaZ.cadastrarOcorrencia();
+								ocorrenciaZ.cadastrar();
 								break;
 							case 3:
 								System.out.println();

@@ -84,7 +84,7 @@ public class Reclamacao {
 		setData(data);
 	}
 
-	public static boolean cadastrarReclamacao() {
+	public static boolean cadastrar() {
 
 		try {
 

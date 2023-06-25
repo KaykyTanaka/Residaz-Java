@@ -94,7 +94,7 @@ public class Ocorrencia {
 				"\nData da encomenda: " + getData() + "Providencias.: " + getProvidencias();
 	}
 
-	public static boolean cadastrarOcorrencia() {
+	public static boolean cadastrar() {
 
 		try {
 
